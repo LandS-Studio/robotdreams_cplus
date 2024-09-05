@@ -1,43 +1,22 @@
 ﻿// robotdreams.cpp : This file contains the "main" function. This is where the execution of the programme starts and ends.
 
-#include <iostream>
+/*
+//Бібліотека ДЗ для уроку №13
+#include "lesson_13.h" 
+*/
 
-int main()
-{
-    float health;
-    float item_distance;
-    float item_impact;
-    float result_impact;
+//Бібліотека ДЗ для уроку №15
+#include "lesson_15.h"
 
-    std::cout << "Enter character health: ";
-    std::cin >> health;
-    std::cout << "\n";
+int main() {
 
-    while (health > 0) {
-        std::cout << "Enter distance to damaging object: ";
-        std::cin >> item_distance;
-        std::cout << "Enter item impact: ";
-        std::cin >> item_impact;
+    /*
+    //Старт програми ДЗ для уроку №13
+    StartHomework_13();
+    */
 
-        if (item_distance < 100) {
-            result_impact = item_impact * (1 - item_distance / 100);
-            health += result_impact;
+    //Старт програми ДЗ для уроку №15
+    StartHomework_15();
 
-            if (health < 1 && health > 0) {
-                health = 1;
-            }
-
-            std::cout << "\nResult item impact: " << result_impact << std::endl;
-            
-            if (health <= 0) {
-                std::cout << "Character is DEAD" << std::endl;
-            }
-            else {
-                std::cout << "Character health: " << health << "\n" << std::endl;
-            }
-        }
-    }
-
-    return 0;
 }
 
