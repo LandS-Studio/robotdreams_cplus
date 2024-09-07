@@ -16,7 +16,7 @@ void StartHomework_15();
 void AddUnitToCombat();
 void RemoveUnitFromCombat();
 
-bool GetCanStartCombat(std::vector<FUnitInfo>);
+bool GetCanStartCombat();
 int GetUnitAmountByClanID(int);
 
 void StartCombat();

@@ -28,7 +28,7 @@ void StartHomework_15() {
 
 		case 2:
 			//Якщо хочаб в одній команді 0 юнітів, бій не можна розпочати
-			if (GetCanStartCombat(combatLobby)) {
+			if (GetCanStartCombat()) {
 				StartCombat();
 			} 
 			else {
@@ -101,7 +101,7 @@ void RemoveUnitFromCombat() {
 			else {
 				std::cout << "WARNING:Unit name invalid" << std::endl;
 				std::cout << "WARNING:All units name clan '" << removeClanID << "' " << "{";
-				for (FUnitInfo localUnitInfo : combatLobby) {
+				for (const FUnitInfo& localUnitInfo : combatLobby) {
 					if (localUnitInfo.ClanID == removeClanID) {
 						std::cout << "'" << localUnitInfo.UnitName << "'";
 					}
@@ -116,7 +116,7 @@ void RemoveUnitFromCombat() {
 	}
 }
 
-bool GetCanStartCombat(std::vector<FUnitInfo> lobby) {
+bool GetCanStartCombat() {
 
 	//Перевірка можливості старту бою
 	if (GetUnitAmountByClanID(0) > 0 && GetUnitAmountByClanID(1) > 0) {
@@ -132,7 +132,7 @@ int GetUnitAmountByClanID(int clanID) {
 
 	//Перевірка кількості юнітів в клані по ID
 	int unitAmount = 0;
-	for (FUnitInfo localUnitInfo : combatLobby) {
+	for (const FUnitInfo& localUnitInfo : combatLobby) {
 		if (localUnitInfo.ClanID == clanID) {
 			unitAmount++;
 		}
@@ -161,7 +161,7 @@ void StartCombat() {
 
 	//Простий режим з порівнянням сили та здоров'я кланів
 	if (combatMode == 0) {
-		for (FUnitInfo combatUnitInfo : combatLobby) {
+		for (const FUnitInfo& combatUnitInfo : combatLobby) {
 			if (combatUnitInfo.ClanID == 0) {
 				hpClan_0 += combatUnitInfo.UnitHealth;
 				dmgClan_0 += combatUnitInfo.UnitDamage;
@@ -198,24 +198,16 @@ void StartCombat() {
 		arrayClan_0.reserve(10);
 		arrayClan_1.reserve(10);
 
-		for (FUnitInfo combatUnitInfo : combatLobby) {
+		for (const FUnitInfo& combatUnitInfo : combatLobby) {
 			if (combatUnitInfo.ClanID == 0) {
 				hpClan_0 += combatUnitInfo.UnitHealth;
 				dmgClan_0 += combatUnitInfo.UnitDamage;
+				arrayClan_0.push_back(combatUnitInfo);
 			}
 			if (combatUnitInfo.ClanID == 1) {
 				hpClan_1 += combatUnitInfo.UnitHealth;
 				dmgClan_1 += combatUnitInfo.UnitDamage;
-			}
-		}
-
-		for (FUnitInfo localUnitInfo : combatLobby) {
-			if (localUnitInfo.ClanID == 0) {
-				arrayClan_0.push_back(localUnitInfo);
-			}
-
-			if (localUnitInfo.ClanID == 1) {
-				arrayClan_1.push_back(localUnitInfo);
+				arrayClan_1.push_back(combatUnitInfo);
 			}
 		}
 
@@ -239,7 +231,7 @@ void StartCombat() {
 				attackUnit = {"", -1, 0, 0};
 				targetUnit = {"", -1, 0, 0};
 
-				for (FUnitInfo attackUnitInfoClan_0 : arrayClan_0) {
+				for (const FUnitInfo& attackUnitInfoClan_0 : arrayClan_0) {
 					if (attackUnit.UnitDamage == 0) {
 						attackUnit = attackUnitInfoClan_0;
 					}
@@ -249,7 +241,7 @@ void StartCombat() {
 				}
 				std::cout << "CLAN '0' | " << attackUnit.UnitName << " POWER: " << attackUnit.UnitDamage << " HP: " << attackUnit.UnitHealth << std::endl;
 				std::cout << "ATTACK TO" << std::endl;
-				for (FUnitInfo targetUnitInfoClan_1 : arrayClan_1) {
+				for (const FUnitInfo& targetUnitInfoClan_1 : arrayClan_1) {
 					if (targetUnit.UnitHealth == 0) {
 						targetUnit = targetUnitInfoClan_1;
 					}
@@ -292,7 +284,7 @@ void StartCombat() {
 				attackUnit = { "", -1, 0, 0 };
 				targetUnit = { "", -1, 0, 0 };
 
-				for (FUnitInfo attackUnitInfoClan_1 : arrayClan_1) {
+				for (const FUnitInfo& attackUnitInfoClan_1 : arrayClan_1) {
 					if (attackUnit.UnitDamage == 0) {
 						attackUnit = attackUnitInfoClan_1;
 					}
@@ -302,7 +294,7 @@ void StartCombat() {
 				}
 				std::cout << "CLAN '1' | " << attackUnit.UnitName << " POWER: " << attackUnit.UnitDamage << " HP: " << attackUnit.UnitHealth << std::endl;
 				std::cout << "ATTACK TO" << std::endl;
-				for (FUnitInfo targetUnitInfoClan_0 : arrayClan_0) {
+				for (const FUnitInfo& targetUnitInfoClan_0 : arrayClan_0) {
 					if (targetUnit.UnitHealth == 0) {
 						targetUnit = targetUnitInfoClan_0;
 					}
