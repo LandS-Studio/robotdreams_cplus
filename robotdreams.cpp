@@ -8,8 +8,11 @@
 //Бібліотека ДЗ для уроку №15
 //#include "lesson_15.h"
 
-//Бібліотека ДЗ для уроку №15
-#include "lesson_17.h"
+//Бібліотека ДЗ для уроку №17
+//#include "lesson_17.h"
+
+//Бібліотека ДЗ для уроку №19
+#include "lesson_19.h"
 
 
 int main() {
@@ -22,7 +25,10 @@ int main() {
     //StartHomework_15();
 
     //Старт програми ДЗ для уроку №17
-    StartHomework_17();
+    //StartHomework_17();
+
+    //Старт програми ДЗ для уроку №19
+    StartHomework_19();
 
 }
 

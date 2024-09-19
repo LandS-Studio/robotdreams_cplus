@@ -128,16 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="lesson_13.cpp" />
     <ClCompile Include="lesson_15.cpp" />
     <ClCompile Include="lesson_17.cpp" />
+    <ClCompile Include="lesson_19.cpp" />
     <ClCompile Include="robotdreams.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Building.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="lesson_13.h" />
     <ClInclude Include="lesson_15.h" />
     <ClInclude Include="lesson_17.h" />
+    <ClInclude Include="lesson_19.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
