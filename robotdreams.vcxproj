@@ -133,6 +133,7 @@
     <ClCompile Include="lesson_15.cpp" />
     <ClCompile Include="lesson_17.cpp" />
     <ClCompile Include="lesson_19.cpp" />
+    <ClCompile Include="lesson_21.cpp" />
     <ClCompile Include="robotdreams.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
@@ -143,6 +144,8 @@
     <ClInclude Include="lesson_15.h" />
     <ClInclude Include="lesson_17.h" />
     <ClInclude Include="lesson_19.h" />
+    <ClInclude Include="lesson_21.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
